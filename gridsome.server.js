@@ -104,7 +104,8 @@ function FlexSearchIndex (api, options) {
     if (errors) return console.error(errors[ 0 ])
     const nodes = _get(data, path, [])
 
-    return nodes.map(node => {
+    return nodes.map(item => {
+      const node = item.node
       // Fields that will be indexed, so must be included & flattened etc
       const searchFieldKeys = Array.isArray(searchFields) ? searchFields : Object.keys(searchFields)
       const indexFields = Object.fromEntries(searchFieldKeys.map(key => {
